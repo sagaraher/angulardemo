@@ -1,0 +1,18 @@
+<div class="container">
+    <button type="button" class="btn btn-primary" (click)="getApi()">Users</button>
+    <input *ngIf="list.length > 0" #myInput [(ngModel)]="name" (input)="filterItem(myInput.value)" type="text" class="form-control"  placeholder="Search By Name">
+    <table *ngIf="list.length > 0" class="table table-hover">
+      <tr style="background-color: darkorange">            
+            <th>Name</th>
+            <th>Company</th>
+            <th>WebSite</th>
+            <th>Address</th>
+      </tr>
+      <tr *ngFor="let l of filteredItems">        
+        <td>{{l.name}}</td>
+        <td>{{l.company.name}}</td>
+        <td>{{l.website}}</td>
+        <td>{{l.address.street}}{{l.address.city}}{{l.address.zipcode}}</td>
+      </tr>          
+    </table>
+</div>

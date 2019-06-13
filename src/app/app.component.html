@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="card">
+    <div>
+        <input *ngIf="toggleDashBoard == false" type="text" class="form-control" [(ngModel)]="title" placeholder="Input Field">
+        <button type="button" *ngIf="toggleDashBoard == false" class="btn btn-primary" (click)="toggleDashBoard = true" [disabled]="!title">Go To Landing Page</button>
+        <button type="button" *ngIf="toggleDashBoard == true" class="btn btn-primary" (click)="toggleDashBoard = false">Go To Main Page</button>
+    </div>    
+    <div *ngIf="toggleDashBoard == true">
+      <app-dashboard [title]='title'></app-dashboard>
+    </div>
+    </div>    
+</div>
